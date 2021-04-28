@@ -76,7 +76,6 @@ export class ListUsers extends Component {
         }):<div className="reqres-no-data">
         <img className="reqres-no-data-img"  src="./nodata.jpg" alt="nodata"></img>
     </div>
-        
     )
 
     render() {

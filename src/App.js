@@ -12,6 +12,7 @@ function App() {
         <Header/>
         <Switch>
             <Route exact path="/" component={ListUsers} />
+            <Route exact path="/users" component={ListUsers} />
             <Route exact path="/users/:user_id" component={User}/>
             <Route path="*" component={NotFound} />
         </Switch>
