@@ -13,7 +13,9 @@ export default class NotFound extends Component {
                         VIEW ALL USERS
                     </Button>
                 </div>
-                <h1>404 page not found</h1>
+                <div className="page-notfound">
+                    <img className="page-notfound-img"  src="./notfound.png" alt="notfound" ></img>
+                </div>
             </div>
         )
     }
