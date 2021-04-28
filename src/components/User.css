@@ -1,0 +1,12 @@
+.user-page{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.view-all-users-button{
+    padding: 10px;
+}
+.user-card{
+   margin: 0 auto;
+   margin-bottom: 40px;
+}

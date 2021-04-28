@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ListUsers.css';
+import UserCard from './UserCard';
 import Button from '@material-ui/core/Button';
 import querystring from 'querystring';
 const API_BASE_URL = "https://reqres.in/api/users";
@@ -58,40 +59,32 @@ export class ListUsers extends Component {
         }else{
             const url_parse=querystring.parse(qs.substring(1), null, null,null);
             let page=url_parse.page;
-            let updated_api_url =this.updateApiUrl(page);
-            this.fetchApi(updated_api_url,page);
+            if(page==="1" || page==="2"){
+                let updated_api_url =this.updateApiUrl(page);
+                this.fetchApi(updated_api_url,page);
+            }else{
+                this.setState({data:[]});
+            }
         }    
     }
     userList = ()=>(
-        this.state.data.map(user=>{
-            const {email,first_name,last_name,avatar}=user;
-            return <div className="reqres-user" key={user.id}>
-                        <div className="reqres-user-image">
-                            <img 
-                                className="reqres-user-img" 
-                                src={avatar} 
-                                alt={first_name}
-                           />
-                        </div>
-                        <div className="reqres-user-details">
-                            <div className="reqres-user-name">
-                               {first_name} {last_name}
-                           </div>
-                           <div className="reqres-user-email">
-                               {email}
-                           </div>
-                        </div>
-                    </div>
-        })
+        this.state.data.length!==0?this.state.data.map(user=>{
+            // const {email,first_name,last_name,avatar}=user;
+            return <div key={user.id} onClick={()=>{this.props.history.push(`/users/${user.id}`)}}>
+                <UserCard user={user}/>
+            </div>
+        }):<div className="reqres-no-data">
+        <img className="reqres-no-data-img"  src="./nodata.jpg" alt="nodata"></img>
+    </div>
         
     )
 
     render() {
-        console.log(this.state);
         return (
             <div className="reqres-buttons-userlist">
                 <div className="reqres-buttons">
                     <Button
+                        className="button-page"
                         variant={
                           this.state.page === '1'
                             ? "contained"
@@ -103,6 +96,7 @@ export class ListUsers extends Component {
                         PAGE-1
                     </Button>
                     <Button
+                        className="button-page"
                         variant={
                           this.state.page === '2'
                             ? "contained"
