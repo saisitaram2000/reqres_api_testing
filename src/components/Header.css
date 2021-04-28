@@ -1,0 +1,9 @@
+.reqres-header{
+    position: relative;
+    font-size: 40px;
+    font-weight: 700;
+    background-color: #6200ee;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
