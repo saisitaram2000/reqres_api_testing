@@ -36,7 +36,7 @@ export default class User extends Component {
                         <UserCard user={this.state.data}/>
                     </div>:
                     <div className="user-no-data">
-                        <img className="user-no-data-img"  src="./nodata.jpg" alt="nodata" ></img>
+                        <img className="user-no-data-img"  src="./nodata.jpg" alt="nodata"></img>
                     </div>
                 }
             </div>
