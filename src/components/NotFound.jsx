@@ -13,6 +13,8 @@ export default class NotFound extends Component {
                         VIEW ALL USERS
                     </Button>
                 </div>
+                <br/>
+                <br/>
                 <div className="page-notfound">
                     <img className="page-notfound-img"  src="./notfound.png" alt="notfound" ></img>
                 </div>
